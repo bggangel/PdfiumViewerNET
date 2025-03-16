@@ -268,6 +268,11 @@ namespace PdfiumViewer.Demo
             {
                 for (var i = 0; i < Renderer.PageCount; i++)
                 {
+                    Renderer.Document.GetPageSize(i);
+                }
+
+                for (var i = 0; i < Renderer.PageCount; i++)
+                {
                     var size = Renderer.Document.PageSizes[i];
                     var image = Renderer.Document.Render(i, (int)size.Width * 5, (int)size.Height * 5, 300, 300, false);
                     image.Save(Path.Combine(path, $"img{i}.png"));
